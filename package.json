@@ -4,11 +4,11 @@
   "description": "a vue-express-vuecli3 project",
   "main": "src/server/index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development&&nodemon src/server/index.js",
+    "dev": "set VUE_CLI_BABEL_TRANSPILE_MODULES=true&&nodemon index.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "set NODE_ENV=production&&node src/server/index.js"
+    "start": "set NODE_ENV=production&&set VUE_CLI_BABEL_TRANSPILE_MODULES=true&&node index.js"
   },
   "repository": {
     "type": "git",
