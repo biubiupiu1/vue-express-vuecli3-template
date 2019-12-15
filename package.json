@@ -4,10 +4,11 @@
   "description": "a vue-express-vuecli3 project",
   "main": "src/server/index.js",
   "scripts": {
-    "dev": "set VUE_CLI_BABEL_TRANSPILE_MODULES=true&&nodemon index.js",
+    "dev": "set VUE_CLI_BABEL_TRANSPILE_MODULES=true&&nodemon --inspect index.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "dev-server": "set NODE_ENV=production&&set VUE_CLI_BABEL_TRANSPILE_MODULES=true&&nodemon --inspect index.js",
     "start": "set NODE_ENV=production&&set VUE_CLI_BABEL_TRANSPILE_MODULES=true&&node index.js"
   },
   "repository": {
@@ -38,6 +39,7 @@
     "webpack-hot-middleware": "^2.24.2"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "vue": "^2.5.17"
   },
   "eslintConfig": {

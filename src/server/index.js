@@ -1,6 +1,7 @@
 import express from 'express'
 import webpack from 'webpack'
 import path from 'path'
+import bodyParser from "body-parser"
 
 const app = express();
 
@@ -13,16 +14,20 @@ if (app.get('env') === 'development') {
     // configuration file as a base.
 
     app.use(require('webpack-dev-middleware')(compiler, {
-        publicPath: config.output.publicPath
+        publicPath: config.output.publicPath,
+        stats: "errors-only"
     }));
 
     app.use(require("webpack-hot-middleware")(compiler));
 
 }
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 app.use('/static', express.static(path.join(__dirname, '../../dist/static')))
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, '../../dist/index.html'));
 });
 
